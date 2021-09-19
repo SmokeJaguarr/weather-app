@@ -16,6 +16,10 @@ class IpLocationApi
     public const IPSTACK_API_KEY      = '4ad0e02fbf2e1a55a886b65c9d4a7644';
     public const IPSTACK_API_BASE_URL = 'http://api.ipstack.com/';
 
+    /**
+     * @param $ip
+     * @return array
+     */
     public static function getUserLocationFromIp($ip): array
     {
 

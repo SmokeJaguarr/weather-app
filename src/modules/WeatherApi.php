@@ -16,6 +16,10 @@ class WeatherApi
     public const OPENWEATHERMAP_API_KEY      = '26e29aa16ee3a3a8af761f4dd0410824';
     public const OPENWEATHERMAP_API_BASE_URL = 'https://api.openweathermap.org/data/2.5/';
 
+    /**
+     * @param $city
+     * @return array
+     */
     public static function getWeatherData($city): array
     {
         $response = [];

@@ -2,8 +2,8 @@ const DATA_EXPIRY_IN_MINUTES = 5;
 const LOCAL_STORAGE_WEATHER_NAME = 'weatherData';
 
 $(document).ready(function () {
-    let weatherDataLocalStorage = getWeatherDataLocalStorage();
-    if (weatherDataLocalStorage !== null) {
+    let weatherData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_WEATHER_NAME)) !== null ? getWeatherDataLocalStorage() : null;
+    if (weatherData !== null) {
         fillTemplateWithData(weatherDataLocalStorage);
         console.log('Data From local storage');
     } else {
@@ -26,6 +26,7 @@ function fillTemplateWithData(data) {
 
 function getWeatherDataLocalStorage() {
     data = JSON.parse(localStorage.getItem(LOCAL_STORAGE_WEATHER_NAME));
+    console.log(data);
     if (data.expiryDate < +new Date()) {
         return data = null;
 
