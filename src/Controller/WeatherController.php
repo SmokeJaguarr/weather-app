@@ -28,9 +28,7 @@ class WeatherController extends AbstractController
         if ($location_data['statusCode'] === 200) {
             $weather_data = WeatherApi::getWeatherData($location_data['city']);
 
-            if ($weather_data['statusCode'] !== 200) {
-                return new JsonResponse($weather_data, $weather_data['statusCode']);
-            }
+            return new JsonResponse($weather_data, $weather_data['statusCode']);
         }
 
         return new JsonResponse($location_data, $location_data['statusCode']);
