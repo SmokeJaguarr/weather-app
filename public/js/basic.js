@@ -4,11 +4,10 @@ const LOCAL_STORAGE_WEATHER_NAME = 'weatherData';
 $(document).ready(function () {
     let weatherData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_WEATHER_NAME)) !== null ? getWeatherDataLocalStorage() : null;
     if (weatherData !== null) {
-        fillTemplateWithData(weatherDataLocalStorage);
+        fillTemplateWithData(weatherData);
         console.log('Data From local storage');
     } else {
         requestAndStoreWeatherData();
-        console.log('Data From API Request');
     }
 });
 $('#reload-data').click(function () {
@@ -26,12 +25,10 @@ function fillTemplateWithData(data) {
 
 function getWeatherDataLocalStorage() {
     data = JSON.parse(localStorage.getItem(LOCAL_STORAGE_WEATHER_NAME));
-    console.log(data);
     if (data.expiryDate < +new Date()) {
         return data = null;
 
     } else {
-        console.log(+new Date());
         console.log('data ok');
         return data;
     }
@@ -45,6 +42,7 @@ function requestAndStoreWeatherData() {
         url: "/rest/weather",
         dataType: "json",
         success: function (data) {
+            console.log('Data From API Request');
             data.expiryDate = +new Date(new Date().getTime() + DATA_EXPIRY_IN_MINUTES * 60000);
             localStorage.setItem(LOCAL_STORAGE_WEATHER_NAME, JSON.stringify(data));
             fillTemplateWithData(data);
