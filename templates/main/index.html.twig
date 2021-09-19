@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="vh-100" style="background-color: #4B515D;">
+        <button id="reload-data">Reload data</button>
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-8 col-lg-6 col-xl-4">
+                    <div class="card" style="color: #4B515D; border-radius: 35px;">
+                        <div class="card-body p-4">
+                            <div class="d-flex">
+                                <h6 id="city-name" class="flex-grow-1"></h6>
+                                <h6 id="time">15:07</h6>
+                            </div>
+                            <div class="d-flex flex-column text-center mt-5 mb-4">
+                                <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"><span
+                                            id="temperature"></span>°C </h6>
+                                <span class="small" style="color: #868B94">Stormy</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1" style="font-size: 1rem;">
+                                    <div>WindSpeed<i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span
+                                                id="wind-speed" class="ms-1"> </span> <span class="ms-1"> m/s</span>
+                                    </div>
+                                    <div>Humidity<i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span
+                                                id="humidity" class="ms-1"> </span> <span class="ms-1">%</span></div>
+                                </div>
+                                <div>
+                                    <img src="https://www.tet.lv/images/design/tet.1.25.0/assets/images/f61583fca875e0fc987e80a0273e2ddf.svg"
+                                         width="100px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
